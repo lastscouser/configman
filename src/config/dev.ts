@@ -8,12 +8,6 @@ export enum ConfigStatus {
 const devConfig: Config = {
   port: 1892,
   logLevel: "debug",
-  jwtPrivateKey: "api-template-jwt-private-key",
-  telegram: {
-    key: ConfigStatus.NotMandatory,
-    groupId: ConfigStatus.NotMandatory,
-  },
-  tokenDurationInMinutes: 100,
   firebase: {
     apiKey: process.env.FIREBASE_API_KEY || "",
     authDomain: process.env.FIREBASE_AUTH_DOMAIN || "",

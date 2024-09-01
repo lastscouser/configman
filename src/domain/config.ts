@@ -1,12 +1,6 @@
 export interface Config {
   port: number;
   logLevel: string;
-  jwtPrivateKey: string;
-  tokenDurationInMinutes: number;
-  telegram: {
-    key: string;
-    groupId: string;
-  };
   firebase: {
     apiKey: string;
     authDomain: string;

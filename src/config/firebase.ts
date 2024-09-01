@@ -12,7 +12,11 @@ import {
 import config from "./config";
 import winstonLogger from "../startup/log";
 
-const serviceAccount = require("../constant/firebase.json");
+const serviceAccount = JSON.parse(
+  Buffer.from(process.env.FIREBASE_SERVICE_ACCOUNT || "", "base64").toString(
+    "utf-8"
+  )
+);
 
 admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
 

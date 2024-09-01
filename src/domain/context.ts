@@ -1,6 +1,6 @@
-import { UserTokenPayload } from "../helper/jwt";
+import { DecodedIdToken } from "firebase-admin/lib/auth/token-verifier";
 
 export interface Context {
   sessionId: string;
-  user: UserTokenPayload;
+  user: DecodedIdToken;
 }

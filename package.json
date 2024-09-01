@@ -5,7 +5,10 @@
   "main": "index.ts",
   "scripts": {
     "build": "tsc",
-    "start": "tsc && node dist/index.js",
+    "start": "node dist/index.js",
+    "postinstall": "tsc",
+    "watch-node": "nodemon dist/index.js",
+    "watch-ts": "tsc -w",
     "deploy": "yarn install && npm run build && pm2 restart exchange",
     "dev": "nodemon",
     "template-start": "yarn install && yarn build && yarn generate && yarn migrate"

@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "bb88da0c-9f9e-4ee3-bbe9-d1ef4b9310b3",
+		"name": "configman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8366092"
+	},
+	"item": [
+		{
+			"name": "home",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/home",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"home"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"bulentcosan@mail.com\",\n    \"password\": \"123321\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/users/register",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"token\", pm.response.json().success.token);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"bulentcosan@mail.com\",\n    \"password\": \"123321\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/users/login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user reset password",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"bulentcosan@mail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/users/reset-password",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"reset-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user logout",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"bulentcosan@mail.com\",\n    \"password\": \"123321\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/users/logout",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parameters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/parameters/all",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"parameters",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parameter by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/parameters/one/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"parameters",
+						"one",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "MmZuNqubu4aX3FRqMgZ4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parameter create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"group\": \"at\",\n    \"key\": \"max_version\",\n    \"value\": \"1.0.0\",\n    \"description\": \"maximum app version to run\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/parameters/create",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"parameters",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parameter delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/parameters/delete/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"parameters",
+						"delete",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "MmZuNqubu4aX3FRqMgZ4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parameter update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"group\": \"FR\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/parameters/update/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"parameters",
+						"update",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "SndYsSAHatAY2lQjEsyB"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cache keys",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/cache/keys",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"cache",
+						"keys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cache item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/cache/items/:key",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"cache",
+						"items",
+						":key"
+					],
+					"variable": [
+						{
+							"key": "key",
+							"value": "parameters"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{token}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}
